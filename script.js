@@ -1,64 +1,100 @@
-// Intersection Observer for Scroll Animations
+/**
+ * Vlocal Group - 2026 UI/UX Interaction Logic
+ */
+
 document.addEventListener("DOMContentLoaded", () => {
-    // Reveal elements on scroll
-    const reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
+    // 1. Initialize Lucide Icons
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+
+    // 2. Advanced Scroll Reveal Animations (Intersection Observer)
+    const revealElements = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
+    
+    const revealOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+    };
 
     const revealOnScroll = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // Add staggered delay if multiple elements enter at once
                 entry.target.classList.add("active");
-                observer.unobserve(entry.target); // Optional: only animate once
+                observer.unobserve(entry.target); // Animate only once for premium feel
             }
         });
-    }, {
-        threshold: 0.15, // Trigger when 15% of element is visible
-        rootMargin: "0px 0px -50px 0px"
+    }, revealOptions);
+
+    revealElements.forEach(el => {
+        revealOnScroll.observe(el);
     });
 
-    reveals.forEach(reveal => {
-        revealOnScroll.observe(reveal);
-    });
-
-    // Navbar background on scroll
+    // 3. Dynamic Sticky Glass Navbar
     const navbar = document.querySelector(".navbar");
-    window.addEventListener("scroll", () => {
+    
+    const handleScroll = () => {
         if (window.scrollY > 50) {
             navbar.classList.add("scrolled");
         } else {
             navbar.classList.remove("scrolled");
         }
-    });
+    };
+    
+    // Initial check and scroll event listener
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
-    // Initialize Lucide icons
-    if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-    }
-});
+    // 4. Mobile Menu Toggle Logic
+    const mobileMenuBtn = document.getElementById('mobile-menu');
+    const navLinksContainer = document.querySelector('.nav-links');
 
-
-    // Mobile Menu Toggle
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (mobileMenu) {
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const icon = mobileMenu.querySelector('i');
-            if (navLinks.classList.contains('active')) {
+    if (mobileMenuBtn && navLinksContainer) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinksContainer.classList.toggle('active');
+            
+            // Toggle Icon between Menu and Close(X)
+            const icon = mobileMenuBtn.querySelector('i');
+            if (navLinksContainer.classList.contains('active')) {
                 icon.setAttribute('data-lucide', 'x');
             } else {
                 icon.setAttribute('data-lucide', 'menu');
             }
-            if (typeof lucide !== 'undefined') lucide.createIcons();
+            
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+
+        // Close mobile menu when a link is clicked
+        const navLinks = navLinksContainer.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinksContainer.classList.remove('active');
+                
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.setAttribute('data-lucide', 'menu');
+                
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
+            });
         });
     }
 
-    // Close menu when clicking a link
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            const icon = mobileMenu.querySelector('i');
-            icon.setAttribute('data-lucide', 'menu');
-            if (typeof lucide !== 'undefined') lucide.createIcons();
+    // 5. Parallax effect for glow orbs (Optional advanced UX)
+    const orbs = document.querySelectorAll('.glow-orb');
+    if (orbs.length > 0) {
+        window.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            orbs.forEach(orb => {
+                const speed = orb.classList.contains('primary') ? 30 : -30;
+                const x = (mouseX * speed);
+                const y = (mouseY * speed);
+                orb.style.transform = `translate(${x}px, ${y}px)`;
+            });
         });
-    });
+    }
+});
