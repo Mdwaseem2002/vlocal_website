@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Vlocal Group</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.5rem;">
+                <img src="assets/logo.png" alt="Vlocal Group" class="logo-img">
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <i data-lucide="menu"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero reveal">
+        <div class="container">
+            <h1 class="mb-2 reveal-left" style="font-size: 5rem;">LET'S <span class="text-orange">TALK</span></h1>
+            <p class="text-white reveal" style="font-size: 1.2rem; max-width: 600px; margin: 0 auto; transition-delay: 0.3s; font-weight: 600;">we'd love to hear from you.</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="bg-dark" style="position: relative; overflow: hidden; padding-bottom: 8rem;">
+        <div class="watermark" style="font-size: 8rem; top: 40%;">CONNECT</div>
+        
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="modern-split" style="align-items: flex-start; gap: 4rem;">
+                
+                <!-- Contact Info Panel -->
+                <div class="split-content reveal-left">
+                    <h3 class="mb-4" style="font-size: 2.5rem;">Get In Touch</h3>
+                    <div class="divider mb-4"></div>
+                    
+                    <div class="contact-info-block mb-4">
+                        <h4 class="text-orange mb-2">Registered Office</h4>
+                        <p class="text-muted" style="display: flex; gap: 1rem; align-items: flex-start;">
+                            <i data-lucide="map-pin" style="color: var(--accent-orange); width: 24px; flex-shrink: 0; margin-top: 3px;"></i>
+                            Varanasi
+                        </p>
+                    </div>
+
+                    <div class="contact-info-block mb-4">
+                        <h4 class="text-orange mb-2">Corporate Office</h4>
+                        <p class="text-muted" style="display: flex; gap: 1rem; align-items: flex-start;">
+                            <i data-lucide="building" style="color: var(--accent-orange); width: 24px; flex-shrink: 0; margin-top: 3px;"></i>
+                            Bangalore
+                        </p>
+                    </div>
+
+                    <div class="contact-info-block mb-4">
+                        <h4 class="text-orange mb-2">Direct Contact</h4>
+                        <p class="text-muted mb-2" style="display: flex; gap: 1rem; align-items: center;">
+                            <i data-lucide="phone" style="color: var(--accent-orange); width: 24px;"></i>
+                            (+91) 900-047-3322
+                        </p>
+                        <p class="text-muted" style="display: flex; gap: 1rem; align-items: center;">
+                            <i data-lucide="mail" style="color: var(--accent-orange); width: 24px;"></i>
+                            business@vlocalgroup.com
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Glass Form Panel -->
+                <div class="split-img-wrapper reveal-right glass-card" style="max-width: 600px; width: 100%;">
+                    <form class="contact-form">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input type="text" placeholder="John" style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; color: #fff; margin-top: 0.5rem;">
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input type="text" placeholder="Doe" style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; color: #fff; margin-top: 0.5rem;">
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top: 1.5rem;">
+                            <label>Email Address</label>
+                            <input type="email" placeholder="john@example.com" style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; color: #fff; margin-top: 0.5rem;">
+                        </div>
+                        <div class="form-group" style="margin-top: 1.5rem;">
+                            <label>Message</label>
+                            <textarea rows="5" placeholder="How can we help you?" style="width: 100%; padding: 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; color: #fff; margin-top: 0.5rem; resize: vertical;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 2rem; width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container reveal">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo mb-2" style="display: flex; align-items: center; gap: 0.5rem;">
+                        <img src="assets/logo.png" alt="Vlocal Group" class="logo-img">
+                    </a>
+                    <p class="text-muted mb-4" style="max-width: 400px;">
+                        Adding economics to your advertising. Your trusted partner in delivering impactful marketing solutions.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#"><i data-lucide="facebook" style="width: 20px; height: 20px;"></i></a>
+                        <a href="#"><i data-lucide="instagram" style="width: 20px; height: 20px;"></i></a>
+                        <a href="#"><i data-lucide="linkedin" style="width: 20px; height: 20px;"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Get In Touch</h4>
+                    <ul class="footer-links" style="color: var(--text-muted)">
+                        <li style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+                            <i data-lucide="mail" style="color: var(--accent-orange); width: 18px; height: 18px;"></i>
+                            business@vlocalgroup.com
+                        </li>
+                        <li style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+                            <i data-lucide="phone" style="color: var(--accent-orange); width: 18px; height: 18px;"></i>
+                            (+91) 900-047-3322
+                        </li>
+                        <li style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <i data-lucide="map-pin" style="color: var(--accent-orange); width: 18px; height: 18px; flex-shrink: 0;"></i>
+                            Registered Office: Varanasi
+                        </li>
+                        <li style="display: flex; gap: 0.5rem;">
+                            <i data-lucide="building" style="color: var(--accent-orange); width: 18px; height: 18px; flex-shrink: 0;"></i>
+                            Corporate Office: Bangalore
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Vlocal Group. Powered by Vlocal Group.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
